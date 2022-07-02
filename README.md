@@ -2,6 +2,10 @@
 Learning React Native
 </h1>
 
+<p align='center'>
+  <img width='250px' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZY5vGENCCiPY1MQoe54itqJDuGCmTdBn4ow&usqp=CAU' alt= 'react native logo'/>
+</p>
+
 <h2 align='center'>
 This project is to learn react-native framework
 </h2>

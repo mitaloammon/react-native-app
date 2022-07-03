@@ -6,7 +6,7 @@ import Header from "./components/Header/Index";
 const App: React.FC = () => {
     return (
       <SafeAreaView style={style.App}>
-        <Header />
+        <Header name="Luís" title="Welcome To React Native App!"/>
       </SafeAreaView>
     );
 };

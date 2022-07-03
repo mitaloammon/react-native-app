@@ -3,12 +3,14 @@ import React from 'react'
 
 // import { Container } from './styles'
 
-const Header: React.FC = () => {
+import {Props} from './types';
+
+const Header =(props: Props) => {
 
   return (
     <View>
-      <Text style={style.Title}>Hello,</Text>
-      <Text style={style.SubTitle}>Mitalo</Text>
+      <Text style={style.Title}>{props.title}</Text>
+      <Text style={style.SubTitle}>{props.name}</Text>
     </View>
   );
 

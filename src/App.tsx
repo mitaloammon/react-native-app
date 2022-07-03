@@ -1,26 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import Header from "./components/Header/Index";
 
 // import { container } from './styles'
 const App: React.FC = () => {
     return (
-        <SafeAreaView style={style.App}>
-          <Text style={style.Title}>Bem vindo ao Schema Academy</Text>
-        </SafeAreaView>
+      <SafeAreaView style={style.App}>
+        <Header />
+      </SafeAreaView>
     );
 };
 
 export default App;
 
 const style = StyleSheet.create({
-    App:{
-        flex: 1,
-        backgroundColor: 'black',
-        justifyContent: 'center'
-    },
+  App: {
+    flex: 1,
+    margin: 20,
+  },
 
-    Title:{
-        color: 'white',
-        fontSize: 30,
-    }
-})
+});

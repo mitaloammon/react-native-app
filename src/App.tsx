@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { StyleSheet, SafeAreaView, Button } from 'react-native';
 import Header from "./components/Header/Index";
 
@@ -8,8 +8,21 @@ const App: React.FC = () => {
     const [title, setTitle] = useState<string>('Olá!,');
 
     /**
+     * Effect
+     */
+    useEffect(()=>{
+      console.log("Updated");
+      if(name == 'Mitalo'){
+        setTitle('Hello');
+      } else {
+        setTitle('Olá');
+      }
+    }, [name])
+
+    /**
      * Callback
      */
+
     const handlePressButton = () => {
       setName((old) => {
         if(old == 'Mitalo'){

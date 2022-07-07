@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { StyleSheet, SafeAreaView, Button } from 'react-native';
+import React, {useState, useEffect, useCallback, useMemo, useRef} from "react";
+import { StyleSheet, SafeAreaView, Button, TextInput } from 'react-native';
 import Header from "./components/Header/Index";
 
 // import { container } from './styles'
@@ -20,23 +20,55 @@ const App: React.FC = () => {
     }, [name])
 
     /**
-     * Callback
+     * Callback - Mantém uma função
      */
 
-    const handlePressButton = () => {
-      setName((old) => {
-        if(old == 'Mitalo'){
-          return 'Miguel';
+    const handlePressButton = useCallback(()=>{
+        if(name == 'Mitalo'){
+          setName('Miguel');
         } else {
-          return 'Mitalo';
+          setName('Mitalo');
         }
-      });
-    };
+    }, [])
+
+    /**
+     * Memo - Mantém um valor
+     */
+
+    const nameChanged = useMemo(()=>{
+      // return value
+      return `${name} | ${new Date()}`;
+    }, [name])
+
+    // () => {
+    //   setName((old) => {
+    //     if(old == 'Mitalo'){
+    //       return 'Miguel';
+    //     } else {
+    //       return 'Mitalo';
+    //     }
+    //   });
+    // };
+
+     /**
+      * Refs
+      */
+
+     const InputRef = useRef<TextInput>({} as TextInput);
 
     return (
       <SafeAreaView style={style.App}>
-        <Header title={title}name={name}/>
-        <Button title="Change name" onPress={handlePressButton}/>
+        <Header title={title}name={nameChanged}/>
+        <Button
+          title="Change name"
+          onPress={() => console.log(InputRef.current.blur())}
+        />
+
+        <TextInput
+          ref={InputRef}
+          style={style.Input}
+          onChangeText={text => setName(text)}
+        />
       </SafeAreaView>
     );
 };
@@ -47,6 +79,13 @@ const style = StyleSheet.create({
   App: {
     flex: 1,
     margin: 20,
+  },
+
+  Input: {
+    padding: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    color: 'white',
+    fontSize: 20,
   },
 
 });

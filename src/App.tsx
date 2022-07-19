@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { ThemeProvider } from "styled-components";
+import Header from './components/Header/Index';
+import Button from "./components/Button/Index";
+import useAppearance from "./hooks/useAppearance";
 
 // import { container } from './styles'
+
+
+
+
+
 const App: React.FC = () => {
+  const {theme} = useAppearance()
+  //const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
     return (
-        <SafeAreaView style={style.App}>
-          <Text style={style.Title}>Bem vindo ao Schema Academy</Text>
-        </SafeAreaView>
+        <ThemeProvider theme={theme}>
+          <SafeAreaView style={style.App}>
+            <Header />
+            <Button onPress={() => {}} />
+          </SafeAreaView>
+        </ThemeProvider>
     );
 };
 

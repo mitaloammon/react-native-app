@@ -20,6 +20,7 @@ const App: React.FC = () => {
           <SafeAreaView style={style.App}>
             <Header />
             <Button onPress={() => {}} />
+            <Text>Text</Text>
           </SafeAreaView>
         </ThemeProvider>
     );

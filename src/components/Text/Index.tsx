@@ -1,10 +1,10 @@
 import React from "react";
-import { View } from "react-native";
 
-// import {Container} from './styles'
+import {Container} from './styles'
+import { Props } from './types';
 
-const Text: React.FC = () => {
-  return <View />
+const Text = ({children}: Props) => {
+  return <Container>{children}</Container>;
 };
 
 export default Text;

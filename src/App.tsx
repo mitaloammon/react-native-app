@@ -7,10 +7,6 @@ import useAppearance from "./hooks/useAppearance";
 
 // import { container } from './styles'
 
-
-
-
-
 const App: React.FC = () => {
   const {theme} = useAppearance()
   //const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -20,7 +16,9 @@ const App: React.FC = () => {
           <SafeAreaView style={style.App}>
             <Header />
             <Button onPress={() => {}} />
-            <Text>Text</Text>
+            <Text typography="h1" colors="primary">
+              Text
+            </Text>
           </SafeAreaView>
         </ThemeProvider>
     );
